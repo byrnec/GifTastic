@@ -1,4 +1,25 @@
 body, div, h1{
-    background-color:silver;
+    width: 60%;
 }
 
+body{
+    background-color:silver;
+     font-family: 'Glegoo', serif;
+     margin-left: 75px;
+     margin-right: 75px;
+     width: 100%;
+ }
+ #form-submit{
+     font-size: 25px;
+     width:25%;
+ }
+
+ .buttons{
+    border-radius: 25px;
+    background-position: left top;
+    background-repeat: repeat;
+    padding: 30px; 
+    width: 200px;
+    height: 90px;
+    font-size: 24px;
+ }
