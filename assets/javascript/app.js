@@ -2,15 +2,16 @@
 // create an array of strings, each one related to a topic that interests you.
 //Save it to a variable called topics.
 
-var topics = ["puppies", "kittens", "hamsters", "ponies"]
+var topics = ["puppies", "kittens", "hamsters", "ponies", "koala+bears"]
 
 // take the topics in this array and create buttons in your HTML.
 
 //function to create button
 function displayButtons() {
-
+  $(".buttons").empty();
   // Try using a loop that appends a button for each string in the array.
   for (var i = 0; i < topics.length; i++) {
+
     var topicButtons = $("<button>");
 
     //  //  promise function--when we get the response, do this--
@@ -50,7 +51,7 @@ console.log(results)
     for (var i = 0; i < results.length; i++) {
     
 
-      var gifDiv = $("<div class= 'animalImages'>");
+      var gifDiv = $("<div>");
 
       // Under every gif, display its rating (PG, G, so on).
 
@@ -60,12 +61,11 @@ console.log(results)
       var showRating = $("<p>").text("Rating: " + rating);
 
       // add attributes 
-      var image = $("<img>");
+      var image = $("<img class= 'animalImages'>");
       image.attr("src", results[i].images.fixed_height_still.url); //default is still image
       image.attr("data-still", results[i].images.fixed_height_still.url);
       image.attr("data-animate", results[i].images.fixed_height.url);
-      
-      image.attr("state", "still");
+      image.attr("data-state", "still");
 
       gifDiv.prepend(image);
 
@@ -75,8 +75,9 @@ console.log(results)
 })
 $(document).on("click", ".animalImages",function() {
 
-  // give state variables a data-state attribute
+ // give state variables a data-state attribute
   var state=$(this).data("state");
+  // var state = $(this).attr("data-state");
 
   console.log(state)
 
@@ -107,17 +108,16 @@ $(document).on("click", ".animalImages",function() {
   }
 
 })
+// on click
+$(document).on("click", "#form-submit", function(){
 
-    
-    //   // Add a form to your page takes the value from a user input box 
+ // Add a form to your page takes the value from a user input box 
 
-    //   // and adds it into your topics array. 
-    //     userInput.push(topics)
+var userInput=$("#input-value").val();
 
-    //   // Then make a function call that takes each topic in the array remakes the buttons on the page.
+// and adds it into your topics array. 
+topics.push(userInput);
 
-    //   function remakeButtons() {
-
-    //   }
-    // });
-
+ //   function remakeButtons() {
+displayButtons();
+})
