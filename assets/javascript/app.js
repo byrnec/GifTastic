@@ -2,10 +2,10 @@
 // create an array of strings, each one related to a topic that interests you.
 //Save it to a variable called topics.
 
-var topics = ["puppies", "kittens", "hamsters", "ponies", "koala+bears"]
+var topics = ["puppies", "kittens", "hamsters", "ponies", "koala bears", "mice", "guinea pigs", "rabbits"]
 
 // take the topics in this array and create buttons in your HTML.
-
+ 
 //function to create button
 function displayButtons() {
   $(".buttons").empty();
@@ -66,6 +66,7 @@ console.log(results)
       image.attr("data-still", results[i].images.fixed_height_still.url);
       image.attr("data-animate", results[i].images.fixed_height.url);
       image.attr("data-state", "still");
+
 
       gifDiv.prepend(image);
 
